@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yadu Dinesh — Digital Marketing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a0f2c;
+    --navy-mid: #141b3c;
+    --gold: #e6c97a;
+    --gold-light: #f0dfa0;
+    --cream: #f5f0e8;
+    --cream-dark: #ece5d8;
+    --text-dark: #1a1a2e;
+    --text-muted: #5a5a7a;
+    --white: #ffffff;
+    --accent: #c8a84b;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.2rem 3rem;
+    background: rgba(10, 15, 44, 0.96);
+    backdrop-filter: blur(12px);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; color: var(--gold); letter-spacing: 0.04em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.25s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 6rem 5rem 4rem;
+    position: relative; overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(198,160,65,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #hero::after {
+    content: '';
+    position: absolute; bottom: -15%; left: 25%;
+    width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(198,160,65,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left { position: relative; z-index: 2; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(230,201,122,0.15);
+    border: 1px solid rgba(230,201,122,0.3);
+    color: var(--gold);
+    padding: 0.35rem 1rem; border-radius: 2rem;
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    color: var(--white); line-height: 1.05; font-weight: 900;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-name span { color: var(--gold); }
+  .hero-role {
+    font-size: 1rem; color: rgba(255,255,255,0.5);
+    margin: 1rem 0 2rem;
+    letter-spacing: 0.05em;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin: 2.5rem 0;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold);
+    display: block;
+  }
+  .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.45); text-transform: uppercase; letter-spacing: 0.08em; }
+  .hero-cta {
+    display: inline-flex; gap: 1rem; align-items: center;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--gold); color: var(--navy); padding: 0.85rem 2rem;
+    border-radius: 0.3rem; font-weight: 500; text-decoration: none;
+    font-size: 0.9rem; transition: background 0.25s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+  .btn-outline {
+    border: 1px solid rgba(230,201,122,0.4); color: var(--gold);
+    padding: 0.85rem 2rem; border-radius: 0.3rem; text-decoration: none;
+    font-size: 0.9rem; transition: border-color 0.25s, background 0.25s;
+    display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--gold); background: rgba(230,201,122,0.08); }
+
+  .hero-right {
+    display: flex; justify-content: center; align-items: center;
+    position: relative; z-index: 2;
+    animation: fadeIn 0.8s 0.3s ease both;
+  }
+  .hero-img-wrap {
+    position: relative; width: 360px; height: 420px;
+  }
+  .hero-img-frame {
+    position: absolute; inset: 0;
+    border: 2px solid rgba(230,201,122,0.25);
+    border-radius: 1rem;
+    transform: translate(14px, 14px);
+  }
+  .hero-img {
+    width: 100%; height: 100%; object-fit: cover;
+    border-radius: 1rem;
+    position: relative; z-index: 1;
+  }
+  .hero-img-placeholder {
+    width: 100%; height: 100%; border-radius: 1rem;
+    background: linear-gradient(135deg, #1e2650 0%, #0f1535 100%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem; z-index: 1; position: relative;
+  }
+  .hero-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem; font-weight: 900;
+    color: var(--gold); opacity: 0.9;
+  }
+  .hero-img-label {
+    color: rgba(255,255,255,0.4); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 5rem; }
+  .section-label {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--accent); margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 700;
+    color: var(--text-dark); line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+  .section-title.light { color: var(--white); }
+  .divider {
+    width: 48px; height: 3px; background: var(--gold);
+    margin: 1.2rem 0 2.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 5rem; align-items: start; }
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.85; color: var(--text-muted);
+    margin-bottom: 1.2rem;
+  }
+  .contact-pills { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--cream-dark); border: 1px solid rgba(0,0,0,0.06);
+    padding: 0.5rem 1rem; border-radius: 2rem;
+    font-size: 0.82rem; color: var(--text-dark); text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .pill:hover { background: var(--navy); color: var(--gold); border-color: var(--navy); }
+  .pill-icon { font-size: 0.9rem; }
+  .langs-box {
+    background: var(--navy);
+    border-radius: 1rem; padding: 2rem;
+    color: white;
+  }
+  .langs-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--gold); margin-bottom: 1.5rem;
+  }
+  .lang-item { margin-bottom: 1.2rem; }
+  .lang-name { font-size: 0.85rem; color: rgba(255,255,255,0.8); margin-bottom: 0.4rem; display: flex; justify-content: space-between; }
+  .lang-bar { height: 4px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden; }
+  .lang-fill { height: 100%; background: var(--gold); border-radius: 2px; }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--navy); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 0.5rem; bottom: 0;
+    width: 1px; background: rgba(230,201,122,0.2);
+  }
+  .timeline-item { position: relative; margin-bottom: 3.5rem; }
+  .timeline-dot {
+    position: absolute; left: -2.35rem; top: 0.4rem;
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 0 4px rgba(230,201,122,0.2);
+  }
+  .timeline-meta {
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--gold); margin-bottom: 0.4rem;
+  }
+  .timeline-role {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; color: var(--white); margin-bottom: 0.2rem;
+  }
+  .timeline-company {
+    font-size: 0.9rem; color: rgba(255,255,255,0.45); margin-bottom: 1.2rem;
+  }
+  .timeline-bullets { list-style: none; }
+  .timeline-bullets li {
+    font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.7;
+    padding: 0.4rem 0; padding-left: 1rem; position: relative;
+  }
+  .timeline-bullets li::before {
+    content: '→'; position: absolute; left: 0; color: var(--gold);
+    font-size: 0.75rem; top: 0.5rem;
+  }
+  .timeline-bullets li strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--cream-dark); }
+  .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .skill-group {
+    background: var(--white); border-radius: 1rem;
+    padding: 2rem; border: 1px solid rgba(0,0,0,0.06);
+  }
+  .skill-group h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    color: var(--navy); margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem; border-bottom: 2px solid var(--gold);
+    display: inline-block;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .skill-tag {
+    background: var(--cream); border: 1px solid rgba(0,0,0,0.08);
+    padding: 0.4rem 0.9rem; border-radius: 2rem;
+    font-size: 0.8rem; color: var(--text-dark);
+    transition: all 0.2s;
+  }
+  .skill-tag:hover { background: var(--navy); color: var(--gold); border-color: var(--navy); }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--cream); }
+  .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .cert-card {
+    background: var(--white); border: 1px solid rgba(0,0,0,0.07);
+    border-radius: 1rem; padding: 1.5rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    border-top: 3px solid var(--gold);
+  }
+  .cert-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+  .cert-issuer { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.6rem; }
+  .cert-name { font-size: 0.95rem; font-weight: 500; color: var(--text-dark); line-height: 1.5; }
+  .cert-year { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.6rem; }
+
+  /* ── EDUCATION ── */
+  #education { background: var(--navy); }
+  .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .edu-card {
+    border: 1px solid rgba(230,201,122,0.15);
+    border-radius: 1rem; padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: border-color 0.25s;
+  }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--gold);
+  }
+  .edu-card:hover { border-color: rgba(230,201,122,0.4); }
+  .edu-degree {
+    font-family: 'Playfair Display', serif; font-size: 1.1rem;
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+  .edu-inst { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 0.4rem; }
+  .edu-year { font-size: 0.75rem; color: var(--gold); }
+
+  /* ── FOOTER / CONTACT ── */
+  #contact {
+    background: var(--cream-dark);
+    text-align: center; padding: 5rem 3rem;
+  }
+  .contact-grid {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+  .contact-item {
+    background: var(--white); border-radius: 0.8rem;
+    padding: 1.5rem 2.5rem; border: 1px solid rgba(0,0,0,0.07);
+    text-decoration: none; color: var(--text-dark);
+    transition: all 0.25s; display: block;
+  }
+  .contact-item:hover { background: var(--navy); color: var(--gold); transform: translateY(-3px); }
+  .contact-item-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: inherit; opacity: 0.6; margin-bottom: 0.3rem; }
+  .contact-item-value { font-weight: 500; font-size: 0.9rem; }
+
+  footer {
+    background: var(--navy);
+    text-align: center; padding: 1.5rem;
+    font-size: 0.8rem; color: rgba(255,255,255,0.3);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    #hero { grid-template-columns: 1fr; padding: 5rem 1.5rem 3rem; gap: 3rem; }
+    .hero-right { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr 1fr; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">YD</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-tag">Digital Marketing Specialist</div>
+    <h1 class="hero-name">Yadu<br><span>Dinesh</span></h1>
+    <p class="hero-role">Kerala, India &nbsp;·&nbsp; Growth Strategist &nbsp;·&nbsp; Brand Architect</p>
+    <div class="hero-stats">
+      <div>
+        <span class="stat-num">3+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div>
+        <span class="stat-num">2×</span>
+        <span class="stat-label">ROI Growth</span>
+      </div>
+      <div>
+        <span class="stat-num">6+</span>
+        <span class="stat-label">Certifications</span>
+      </div>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View My Work</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-img-frame"></div>
+      <div class="hero-img-placeholder">
+        <div class="hero-initials">YD</div>
+        <span class="hero-img-label">Digital Marketing Specialist</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">Who I Am</p>
+  <h2 class="section-title reveal">Turning digital presence<br>into measurable growth</h2>
+  <div class="divider reveal"></div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>A motivated and results-oriented Digital Marketing Professional with over 3 years of experience driving digital growth, brand awareness, and customer engagement through data-backed strategies. I've led marketing transformations, boosted ROI, and implemented innovative campaigns using the latest trends and technologies.</p>
+      <p>My work spans e-commerce, influencer marketing, customer loyalty programs, and full-funnel campaign management. I'm particularly passionate about bridging the gap between legacy brands and the modern digital landscape — as I did when I launched the entire digital marketing department for an 80+ year-old pharmaceutical brand.</p>
+      <div class="contact-pills">
+        <a href="mailto:yadudineshofficial@gmail.com" class="pill">
+          <span class="pill-icon">✉</span> yadudineshofficial@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/yadu1dinesh" target="_blank" class="pill">
+          <span class="pill-icon">in</span> linkedin.com/in/yadu1dinesh
+        </a>
+        <span class="pill">
+          <span class="pill-icon">📞</span> +91 9496621525
+        </span>
+        <span class="pill">
+          <span class="pill-icon">📍</span> Thrissur, Kerala, India
+        </span>
+      </div>
+    </div>
+    <div class="langs-box reveal">
+      <h3>Languages</h3>
+      <div class="lang-item">
+        <div class="lang-name"><span>Malayalam</span><span style="color: var(--gold); font-size:0.75rem;">Native</span></div>
+        <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>English</span><span style="color: var(--gold); font-size:0.75rem;">Fluent</span></div>
+        <div class="lang-bar"><div class="lang-fill" style="width:90%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Hindi</span><span style="color: var(--gold); font-size:0.75rem;">Conversational</span></div>
+        <div class="lang-bar"><div class="lang-fill" style="width:55%"></div></div>
+      </div>
+      <div class="lang-item">
+        <div class="lang-name"><span>Tamil</span><span style="color: var(--gold); font-size:0.75rem;">Conversational</span></div>
+        <div class="lang-bar"><div class="lang-fill" style="width:50%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label reveal" style="color:rgba(230,201,122,0.6)">Career Journey</p>
+  <h2 class="section-title light reveal">Experience &amp; Impact</h2>
+  <div class="divider reveal"></div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">Aug 2023 – Present</div>
+      <div class="timeline-role">Digital Marketing Specialist</div>
+      <div class="timeline-company">Trinity Pharmaceuticals · Kerala, India</div>
+      <ul class="timeline-bullets">
+        <li><strong>Strategic Leadership:</strong> Spearheaded the digital transformation of an 80+ year-old legacy brand by launching its digital marketing department and website from scratch.</li>
+        <li><strong>Customer Engagement:</strong> Initiated and managed "Refer &amp; Earn" programs and WhatsApp-based cart abandonment recovery campaigns, significantly improving retention and lifetime value.</li>
+        <li><strong>Influencer Marketing:</strong> Collaborated with regional micro-influencers to expand reach and credibility, resulting in improved engagement and conversions.</li>
+        <li><strong>Campaign Execution:</strong> Led full-funnel campaign management across Google Ads and Meta platforms — achieving <strong>2× growth in sales and ROI</strong>.</li>
+        <li><strong>Regulatory Compliance:</strong> Developed marketing content in compliance with the Magical Remedies Act.</li>
+        <li><strong>Performance Analytics:</strong> Continuously monitored, analyzed, and optimized marketing efforts based on KPIs and user insights.</li>
+      </ul>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">Sep 2022 – Aug 2023</div>
+      <div class="timeline-role">Digital Marketing Executive</div>
+      <div class="timeline-company">Tapco Buildware India Pvt Ltd · Kerala, India</div>
+      <ul class="timeline-bullets">
+        <li>Managed end-to-end digital marketing operations including SEO, content marketing, email campaigns, and social media management.</li>
+        <li>Produced SEO-optimized website content and blogs, increasing organic traffic and visibility.</li>
+        <li>Designed high-engagement posts and creatives for Meta and LinkedIn channels.</li>
+        <li>Executed independent order fulfillment processes, including billing and logistics coordination.</li>
+      </ul>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">2021 – 2023</div>
+      <div class="timeline-role">Freelance Digital Marketing</div>
+      <div class="timeline-company">Remote · Various Clients</div>
+      <ul class="timeline-bullets">
+        <li>Executed lead generation campaigns for clients like Alpha Security Solutions.</li>
+        <li>Developed community marketing programs for Girija Medical Store and other local businesses.</li>
+        <li>Partnered with OTC brands to co-host campaigns and events (e.g., Sugar Day health check-up).</li>
+        <li>Created content and managed SEO, SMM, and analytics for small businesses.</li>
+        <li>Provided strategic digital consulting, content development, and e-commerce optimization.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label reveal">Capabilities</p>
+  <h2 class="section-title reveal">Skills &amp; Expertise</h2>
+  <div class="divider reveal"></div>
+  <div class="skills-grid">
+    <div class="skill-group reveal">
+      <h3>Strategy &amp; Marketing</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Marketing Funnel Strategy</span>
+        <span class="skill-tag">Customer Journey Mapping</span>
+        <span class="skill-tag">Campaign Budgeting &amp; ROI</span>
+        <span class="skill-tag">Influencer Collaboration</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Copywriting</span>
+        <span class="skill-tag">PPC</span>
+        <span class="skill-tag">SEO</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h3>Tools &amp; Platforms</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Google Analytics 4 (GA4)</span>
+        <span class="skill-tag">Meta Business Suite</span>
+        <span class="skill-tag">Google Ads</span>
+        <span class="skill-tag">Canva &amp; Photoshop</span>
+        <span class="skill-tag">Google My Business</span>
+        <span class="skill-tag">Zoho &amp; Mailchimp</span>
+        <span class="skill-tag">WordPress / Wix / Shopify</span>
+        <span class="skill-tag">Social Media Scheduling</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h3>E-commerce &amp; Content</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Amazon Listing</span>
+        <span class="skill-tag">Flipkart Listing</span>
+        <span class="skill-tag">Keyword Research</span>
+        <span class="skill-tag">SEO Content Writing</span>
+        <span class="skill-tag">Social Media Campaigns</span>
+        <span class="skill-tag">Email Marketing</span>
+      </div>
+    </div>
+    <div class="skill-group reveal">
+      <h3>Soft Skills</h3>
+      <div class="skill-tags">
+        <span class="skill-tag">Cross-Functional Collaboration</span>
+        <span class="skill-tag">Strategic Leadership</span>
+        <span class="skill-tag">Data-Driven Decision Making</span>
+        <span class="skill-tag">Client Management</span>
+        <span class="skill-tag">Brand Development</span>
+        <span class="skill-tag">Regulatory Compliance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <p class="section-label reveal">Credentials</p>
+  <h2 class="section-title reveal">Certifications</h2>
+  <div class="divider reveal"></div>
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Google Ads Certification</div>
+      <div class="cert-year">2023</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Google</div>
+      <div class="cert-name">Google Shopping Ads</div>
+      <div class="cert-year">2023</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">Google Digital Garage</div>
+      <div class="cert-name">Fundamentals of Digital Marketing</div>
+      <div class="cert-year">2023</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">HubSpot</div>
+      <div class="cert-name">Digital Marketing &amp; Inbound Marketing Certification</div>
+      <div class="cert-year">2023</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">STED Council</div>
+      <div class="cert-name">Certified Digital Marketer</div>
+      <div class="cert-year">2023</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-issuer">STED Council</div>
+      <div class="cert-name">Diploma in GST &amp; Taxation</div>
+      <div class="cert-year">2022</div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label reveal" style="color:rgba(230,201,122,0.6)">Academic Background</p>
+  <h2 class="section-title light reveal">Education</h2>
+  <div class="divider reveal"></div>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-degree">Diploma in Digital Marketing</div>
+      <div class="edu-inst">Vintage Info Solution</div>
+      <div class="edu-year">2022 – 2023</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">MBA in Marketing &amp; Human Resources</div>
+      <div class="edu-inst">Kerala University of Fisheries and Ocean Studies</div>
+      <div class="edu-year">2020 – 2022</div>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-degree">B.Com</div>
+      <div class="edu-inst">Bharathiyar University</div>
+      <div class="edu-year">2016 – 2019</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label reveal">Let's Connect</p>
+  <h2 class="section-title reveal">Ready to work together?</h2>
+  <div class="divider reveal" style="margin: 1.2rem auto 1rem;"></div>
+  <p class="reveal" style="color: var(--text-muted); font-size: 1.05rem; max-width: 500px; margin: 0 auto 0.5rem; line-height: 1.7;">
+    Whether you're looking to grow your brand, launch a campaign, or transform your digital presence — let's make it happen.
+  </p>
+  <div class="contact-grid reveal">
+    <a href="mailto:yadudineshofficial@gmail.com" class="contact-item">
+      <div class="contact-item-label">Email</div>
+      <div class="contact-item-value">yadudineshofficial@gmail.com</div>
+    </a>
+    <a href="tel:+919496621525" class="contact-item">
+      <div class="contact-item-label">Phone</div>
+      <div class="contact-item-value">+91 9496621525</div>
+    </a>
+    <a href="https://www.linkedin.com/in/yadu1dinesh" target="_blank" class="contact-item">
+      <div class="contact-item-label">LinkedIn</div>
+      <div class="contact-item-value">linkedin.com/in/yadu1dinesh</div>
+    </a>
+    <span class="contact-item" style="cursor:default;">
+      <div class="contact-item-label">Location</div>
+      <div class="contact-item-value">Thrissur, Kerala, India</div>
+    </span>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Yadu Dinesh · Digital Marketing Specialist · Thrissur, Kerala</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 60);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
